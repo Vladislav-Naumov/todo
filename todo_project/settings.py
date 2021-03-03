@@ -28,6 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_REDIRECT_URL = 'todo'
+LOGOUT_REDIRECT_URL = 'todo'
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # Application definition
@@ -39,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'todo.apps.TodoConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [

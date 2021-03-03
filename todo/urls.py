@@ -3,7 +3,7 @@ from .views import (
     TodolistView,
     TodoDeletView,
     TodoCreateView,
-    TodoUpdateView
+    TodoUpdateView,
 
 )
 
