@@ -3,6 +3,7 @@
 {% block title %}Войти{% endblock title %}
 
 {% block content %}
+<a href="{% url 'signup' %}">Регистрация</a>
 <h2> Войти</h2>
 <form method="post">
     {% csrf_token %}
