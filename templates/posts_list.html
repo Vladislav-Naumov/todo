@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Список дел{% endblock title %}
+{% block content %}
+ {% if user.is_authenticated %}
+    {% else %}
+    <p>Вы не авторизовались</p>
+    <a href="{% url 'login' %}">Войти</a>
+    <a href="{% url 'signup' %}">Регистрация</a>
+ {% endif %}
+    {% for post in object_list %}
+    <div class="card">
+        <div class="card-header"></div>
+            <span class="text-muted">Вы {{ post.author }} | {{ post.date }}</span>
+            <span class="font-weight-bold"><strong>{{ post.title }}</strong></span>
+            <span class="font-weight-bold"><strong>{{ post.title }}</strong></span>
+    </div>
+    <div class="'card-body">
+          {{ post.body }}
+    </div>
+    <div class="card-footer text-center text-muted">
+        <a href="{% url 'delete_posts' post.pk %}">Удалить</a>
+        <a href="{% url 'create_posts' post.pk %}">Создать</a>
+        <a href="{% url 'update_posts' post.pk %}">Изменить</a>
+    </div>
+
+{% endfor %}
+{% endblock content %}
